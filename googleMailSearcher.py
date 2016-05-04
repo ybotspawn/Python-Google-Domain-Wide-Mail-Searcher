@@ -19,8 +19,6 @@ try:
 except ImportError:
     flags = None
 
-# If modifying these scopes, delete your previously saved credentials
-# at ~/.credentials/gmail-python-quickstart.json
 LST_SCOPES = ['https://mail.google.com/','https://www.googleapis.com/auth/gmail.modify','https://www.googleapis.com/auth/gmail.readonly']
 SEARCH_STRING = 'subject:"SUBJECT" "Message Content"'
 
@@ -67,7 +65,7 @@ def main():
             results[emailAddress] = iterateEmailAccount(emailAddress)
             print("%s:%s" %(emailAddress, results[emailAddress]))
         except:
-            pass
+            pass # fail silently in the basic implementation
 
     resultFile = open("results.csv", "w")
     for k,v in results.items():
